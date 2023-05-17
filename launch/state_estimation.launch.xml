@@ -1,0 +1,32 @@
+<launch>
+ <arg name="mission" default="autocross"/>
+<arg name="use_hall" default="false"/>
+ <arg name="use_resolver" default="true"/>
+ <arg name="use_imu" default="true"/>
+ <arg name="use_gps_1" default="false"/>
+ <arg name="use_gps_2" default="false"/>
+ <arg name="ins_after_init" default="false"/>
+ <arg name="process_model" default="dynamic"/>
+ <arg name="low_speed" default="0.5"/>
+ <arg name="high_speed" default="1.0"/>
+ <arg name="lock_on_publish" default="false"/>
+ <arg name="steering_offset" default="0.32"/>
+ <arg name="async_predict" default="false"/>
+ 
+  <node pkg="turtle_estimation" exec="state_estimation" output="screen" >
+      <param name="mission" value="$(var mission)" />
+      <param name="hall" value="$(var use_hall)" />
+      <param name="resolver" value="$(var use_resolver)" />
+      <param name="imu" value="$(var use_imu)" />
+      <param name="gps1" value="$(var use_gps_1)" />
+      <param name="gps2" value="$(var use_gps_2)" />
+      <param name="insAfterInit" value="$(var ins_after_init)" />
+      <param name="processModel" value="$(var process_model)" />
+      <param name="lowSpeed" value="$(var low_speed)" />
+      <param name="highSpeed" value="$(var high_speed)" />
+      <param name="lockOnPublish" value="$(var lock_on_publish)" />
+      <param name="steeringOffset" value="$(var steering_offset)" />
+      <param name="asyncPredict" value="$(var async_predict)" />
+  </node>
+
+</launch>
